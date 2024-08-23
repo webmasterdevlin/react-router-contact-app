@@ -2,12 +2,12 @@ import React from 'react';
 import {
   Form,
   useLoaderData,
-  useFetcher,
   LoaderFunctionArgs,
   ActionFunctionArgs,
 } from 'react-router-dom';
 import { getContact, updateContact } from '../services/contacts.ts';
 import { Contact } from '../models.ts';
+import Favorite from '../components/favorite.tsx';
 
 export async function loader({ params }: LoaderFunctionArgs): Promise<Contact> {
   const contact = await getContact(params.contactId as string);
@@ -101,28 +101,3 @@ const ContactComponent: React.FC = () => {
 };
 
 export default ContactComponent;
-
-type FavoriteProps = {
-  contact: Contact;
-};
-
-const Favorite: React.FC<FavoriteProps> = ({ contact }) => {
-  const fetcher = useFetcher();
-  let favorite = contact.favorite;
-
-  if (fetcher.formData) {
-    favorite = fetcher.formData.get('favorite') === 'true';
-  }
-
-  return (
-    <fetcher.Form method="post">
-      <button
-        name="favorite"
-        value={favorite ? 'false' : 'true'}
-        aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
-      >
-        {favorite ? '★' : '☆'}
-      </button>
-    </fetcher.Form>
-  );
-};
