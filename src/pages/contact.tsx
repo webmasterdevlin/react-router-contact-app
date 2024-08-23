@@ -18,7 +18,7 @@ export async function loader({ params }: LoaderFunctionArgs): Promise<Contact> {
     });
   }
   console.log(
-    `Loader function (contactLoader) called at file src/routes/contact.tsx`
+    `Loader function (contactLoader) called at file src/pages/contact.tsx`
   );
   return contact;
 }
@@ -29,7 +29,7 @@ export async function action({
 }: ActionFunctionArgs): Promise<Contact> {
   const formData = await request.formData();
   console.log(
-    `Action function (contactAction) called at file src/routes/contact.tsx`
+    `Action function (contactAction) called at file src/pages/contact.tsx`
   );
   return updateContact(params.contactId as string, {
     favorite: formData.get('favorite') === 'true',

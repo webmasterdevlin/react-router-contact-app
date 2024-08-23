@@ -6,7 +6,7 @@ export async function action({
 }: ActionFunctionArgs): Promise<Response> {
   await deleteContact(params.contactId as string);
   console.log(
-    `Action function (destroyAction) called at file src/routes/destroyContact.tsx`
+    `Action function (destroyAction) called at file src/pages/destroyContact.tsx`
   );
   return redirect('/');
 }

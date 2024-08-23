@@ -23,17 +23,13 @@ export async function loader({
   const url = new URL(request.url);
   const q = url.searchParams.get('q');
   const contacts = (await getContacts(q || '')) as Contact[];
-  console.log(
-    `Loader function (rootLoader) called at file src/routes/root.tsx`
-  );
+  console.log(`Loader function (rootLoader) called at file src/pages/root.tsx`);
   return { contacts, q };
 }
 
 export async function action(): Promise<Response> {
   const contact = await createContact();
-  console.log(
-    `Action function (rootAction) called at file src/routes/root.tsx`
-  );
+  console.log(`Action function (rootAction) called at file src/pages/root.tsx`);
   return redirect(`/contacts/${contact.id}/edit`);
 }
 

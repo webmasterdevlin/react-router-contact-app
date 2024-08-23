@@ -18,7 +18,7 @@ export async function loader({ params }: LoaderFunctionArgs): Promise<Contact> {
     });
   }
   console.log(
-    `Loader function (contactLoader) called at file src/routes/editContact.tsx`
+    `Loader function (contactLoader) called at file src/pages/editContact.tsx`
   );
   return contact;
 }
