@@ -2,7 +2,7 @@ import Routes from './routes.tsx';
 
 function App() {
   return (
-    // providers
+    // wrap your providers here
     <Routes />
   );
 }
