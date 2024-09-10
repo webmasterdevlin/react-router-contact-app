@@ -47,6 +47,7 @@ export default function Root() {
 
   return (
     <>
+      {/* navigation bar */}
       <div id="sidebar">
         <h1>Tutorial by React Router</h1>
         <div>
